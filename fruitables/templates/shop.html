@@ -207,10 +207,10 @@
                                                     
                                                     {% if i.id in l1 %}
                                                     <a href="{% url 'add_wishlist' i.id %}" class="">
-                                                        <i class="fa fa-heart fa-2x" style="color: red;"></i></a>
+                                                        <i class="fa fa-heart fa-2x" style="color:red;"></i></a>
                                                     {% else %}
                                                     <a href="{% url 'add_wishlist' i.id %}" class="">
-                                                        <i class="fa fa-heart fa-2x" style="color: gray;"></i></a>
+                                                        <i class="fa fa-heart fa-2x" style="color:gray;"></i></a>
                                                     {% endif %}
                                                     
                                                     <a href="{% url 'shop_detail1' i.id %}" class=""><i class="fa fa-eye fa-2x"></i></a>
