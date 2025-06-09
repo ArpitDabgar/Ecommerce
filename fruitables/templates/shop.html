@@ -215,7 +215,7 @@
                                                     
                                                     <a href="{% url 'shop_detail1' i.id %}" class=""><i class="fa fa-eye fa-2x"></i></a>
                                                     <a href="{% url 'add_cart' i.id %}" class="">
-                                                        <i class="fa fa-shopping-bag me-2 fa-2x"></i></a>
+                                                        <i class="fa fa-shopping-cart fa-2x"></i></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -223,14 +223,22 @@
                                     {% endfor %}
                                     <div class="col-12">
                                         <div class="pagination d-flex justify-content-center mt-5">
-                                            <a href="#" class="rounded">&laquo;</a>
-                                            <a href="#" class="active rounded">1</a>
-                                            <a href="#" class="rounded">2</a>
-                                            <a href="#" class="rounded">3</a>
-                                            <a href="#" class="rounded">4</a>
-                                            <a href="#" class="rounded">5</a>
-                                            <a href="#" class="rounded">6</a>
-                                            <a href="#" class="rounded">&raquo;</a>
+                                            {% if pid.has_previous %}
+                                            <a href="?page=1" class="rounded">First</a>
+                                            <a href="?page={{pid.previous_page_number}}" class="rounded">&laquo;</a>
+                                            {% endif %}
+                                            {% for i in show_page %}
+                                             {% if i == pid.number %}
+                                            <a href="?page={{i}}" class="active rounded">{{i}}</a>
+                                            {% else %}
+                                             <a href="?page={{i}}" class="rounded">{{i}}</a>
+                                             {% endif %}
+                                              {% endfor %}
+                                           
+                                            {% if pid.has_next %}
+                                            <a href="?page={{pid.next_page_number}}" class="rounded">&raquo;</a>
+                                            <a href="?page={{pid.paginator.num_pages}}" class="rounded">Last</a>
+                                            {% endif %}
                                         </div>
                                     </div>
                                 </div>

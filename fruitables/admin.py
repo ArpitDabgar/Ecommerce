@@ -15,5 +15,6 @@ admin.site.register(Add_to_cart)
 
 admin.site.register(Add_to_Wishlist)
 
+admin.site.register(Billing_details)
 
-
+admin.site.register(Apply_coupon)
